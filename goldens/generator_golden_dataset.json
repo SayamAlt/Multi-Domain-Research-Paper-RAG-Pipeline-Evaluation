@@ -1,0 +1,252 @@
+[
+  {
+    "id": "G001",
+    "query": "What deep learning architectures are used to detect lung cancer from CT scans?",
+    "ideal_context": [
+      "Convolutional Neural Networks (CNNs) have emerged as the dominant architecture for lung cancer detection from CT scan images. The proposed model employs a series of convolutional layers followed by max-pooling layers to extract hierarchical spatial features from axial CT slices. ReLU activation is applied after each convolutional block to introduce non-linearity, while batch normalization is used to stabilize training and accelerate convergence.",
+      "The architecture consists of five convolutional blocks, each containing two convolutional layers with 3\u00d73 kernels, followed by 2\u00d72 max-pooling. The final classification head uses two fully connected layers with dropout (p=0.5) to reduce overfitting, culminating in a softmax output layer with two neurons representing malignant and benign classes.",
+      "Experimental results demonstrate that the proposed CNN achieved an overall accuracy of 94.3% on the test set, with a sensitivity of 92.8% and specificity of 95.7%. The model was trained on 3,200 CT slices and validated on a held-out set of 800 slices using stratified 5-fold cross-validation."
+    ],
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf"
+  },
+  {
+    "id": "G002",
+    "query": "How does VGG16 perform compared to a standard CNN for lung cancer CT image classification?",
+    "ideal_context": [
+      "This study compares two architectures for AI-powered lung cancer detection: a custom CNN and the VGG16 model pretrained on ImageNet. The custom CNN was trained from scratch on the lung cancer CT dataset, achieving a test accuracy of 88.6% with an AUC of 0.91.",
+      "VGG16, fine-tuned on the same dataset using transfer learning, achieved a significantly higher test accuracy of 95.4% and an AUC of 0.97. The pretrained convolutional base was frozen during the first ten epochs, after which all layers were unfrozen and trained with a low learning rate of 1e-5 to prevent catastrophic forgetting.",
+      "The superior performance of VGG16 is attributed to its deep 16-layer architecture and the rich feature representations learned from 1.2 million ImageNet images. Despite the domain shift from natural images to CT scans, transfer learning proves highly effective for medical image classification tasks with limited labeled data."
+    ],
+    "source": "AI-Powered Lung Cancer Detection- Assessing VGG16 and CNN Architectures for CT Scan Image Classification.pdf"
+  },
+  {
+    "id": "G003",
+    "query": "Which machine learning methods best classify NSCLC subtypes using lung microbiome data?",
+    "ideal_context": [
+      "This study investigates the use of lung microbiome profiles derived from resected tissue samples to classify Non-Small Cell Lung Cancer (NSCLC) subtypes, specifically adenocarcinoma (ADC) and squamous cell carcinoma (SCC). Microbial composition was profiled using 16S rRNA gene sequencing.",
+      "Four machine learning classifiers were evaluated: Random Forest (RF), Support Vector Machine (SVM), k-Nearest Neighbors (kNN), and Logistic Regression (LR). Random Forest achieved the highest classification accuracy of 82.4% with an AUC of 0.89 under 10-fold cross-validation. SVM achieved 79.1% accuracy, while kNN and LR underperformed at 71.3% and 68.7% respectively.",
+      "Feature importance analysis from the Random Forest model identified Veillonella, Streptococcus, and Prevotella as the three most discriminative microbial genera for distinguishing ADC from SCC. These genera showed significantly different abundance levels between the two NSCLC subtypes (p < 0.05)."
+    ],
+    "source": "Classi cation of NSCLC subtypes using lung microbiome from resected tissue based on machine learning methods.pdf"
+  },
+  {
+    "id": "G004",
+    "query": "What data augmentation techniques are applied to CT scan datasets for lung cancer model training?",
+    "ideal_context": [
+      "To address the limited size of the lung cancer CT dataset and mitigate overfitting, an extensive data augmentation pipeline was applied during training. Augmentation operations include random horizontal and vertical flipping, rotation by angles sampled uniformly from [-20\u00b0, 20\u00b0], zoom scaling in the range [0.9, 1.1], and random brightness and contrast adjustment.",
+      "Gaussian noise injection (\u03c3 = 0.01) was also applied to simulate CT scanner noise variability. All augmentations were applied on-the-fly using the ImageDataGenerator class from Keras, ensuring that the original images were never modified on disk. The augmentation pipeline effectively tripled the training sample diversity without requiring additional data collection.",
+      "Experiments with and without augmentation showed that the augmented model achieved 5.2% higher test accuracy and reduced overfitting as measured by the gap between training and validation loss curves."
+    ],
+    "source": "AI-Powered Lung Cancer Detection- Assessing VGG16 and CNN Architectures for CT Scan Image Classification.pdf"
+  },
+  {
+    "id": "G005",
+    "query": "How does Sentinel-2 satellite imagery support LULC classification in Gelephu, Bhutan?",
+    "ideal_context": [
+      "Sentinel-2 multispectral imagery with 10-meter spatial resolution was acquired for the Gelephu region of Bhutan for multi-temporal analysis spanning 2018 to 2023. A total of 12 spectral bands were utilized, with particular emphasis on the red (Band 4), near-infrared (Band 8), and short-wave infrared (Band 11 and 12) bands for land cover discrimination.",
+      "Land Use and Land Cover (LULC) classification was performed using a Random Forest classifier trained on 2,400 ground-truth samples spanning six land cover classes: forest, agricultural land, built-up area, water body, barren land, and grassland. The classifier achieved an overall accuracy of 91.3% with a kappa coefficient of 0.88.",
+      "Change detection analysis between 2018 and 2023 revealed a 12.4% reduction in forest cover and a 9.7% increase in built-up area in the Gelephu region, indicating significant anthropogenic land use change over the five-year period."
+    ],
+    "source": "Utilizing Sentinel-2 Satellite Imagery for LULC and NDVI Change Dynamics for Gelephu Bhutan.pdf"
+  },
+  {
+    "id": "G006",
+    "query": "What challenges are faced when classifying land cover in complex mountainous landscapes?",
+    "ideal_context": [
+      "Mountainous terrain introduces several challenges for remote sensing-based land cover classification. Topographic effects such as illumination variability caused by terrain slope and aspect lead to significant spectral distortions, causing spectrally similar land cover classes to appear different and spectrally dissimilar classes to appear similar in satellite imagery.",
+      "Mixed pixels are a persistent problem in mountainous areas due to fragmented land cover patterns, where a single pixel contains reflectance contributions from multiple land cover types. This mixed pixel problem reduces classification accuracy, particularly at class boundaries.",
+      "Additionally, cloud cover is more frequent and persistent over mountainous regions, reducing the number of usable cloud-free imagery acquisitions per year. Phenological variability across elevational gradients further complicates the use of single-date imagery, necessitating multi-temporal approaches."
+    ],
+    "source": "Assessment of Machine Learning Algorithms for Land Cover Classification in a Complex Mountainous Landscape.pdf"
+  },
+  {
+    "id": "G007",
+    "query": "What preprocessing steps are applied to CT images before lung cancer classification?",
+    "ideal_context": [
+      "Raw CT scan DICOM files are first converted to Hounsfield Unit (HU) values to standardize tissue density representation. A window of [-1000, 400] HU is applied to isolate lung parenchyma from surrounding structures. Images are then normalized to the [0, 1] range by min-max scaling.",
+      "Lung segmentation is performed using a thresholding-based approach to isolate the lung region and remove irrelevant background structures such as the chest wall and trachea. The segmented lung region is then resized to 224\u00d7224 pixels using bilinear interpolation to match the input dimensions required by the deep learning models.",
+      "Finally, z-score normalization is applied channel-wise to center pixel intensities around zero with unit variance, matching the normalization statistics of the ImageNet dataset for compatibility with pretrained VGG16 weights."
+    ],
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf"
+  },
+  {
+    "id": "G008",
+    "query": "How does deep learning outperform traditional methods in high-resolution remote sensing classification?",
+    "ideal_context": [
+      "Traditional machine learning methods for remote sensing classification, such as Support Vector Machines (SVM) and Maximum Likelihood Classification (MLC), rely on handcrafted spectral features and fail to capture complex spatial patterns present in high-resolution imagery.",
+      "Deep learning models, particularly fully convolutional networks (FCNs) and encoder-decoder architectures like U-Net, learn hierarchical spatial-spectral feature representations directly from raw pixel data. This enables them to capture both local textures and global structural patterns across multiple scales.",
+      "Comparative experiments on high-resolution (0.5m) aerial imagery showed that U-Net achieved an overall accuracy of 93.7% and mean IoU of 0.89, outperforming SVM (85.2%, IoU 0.76) and MLC (81.4%, IoU 0.71) by significant margins across all six land cover classes."
+    ],
+    "source": "Land-Cover Classification Using Deep Learning with High-Resolution Remote-Sensing Imagery.pdf"
+  },
+  {
+    "id": "G009",
+    "query": "What is the significance of NDVI in tracking vegetation change in Gelephu, Bhutan?",
+    "ideal_context": [
+      "The Normalized Difference Vegetation Index (NDVI) is calculated from Sentinel-2 imagery as NDVI = (NIR - Red) / (NIR + Red), where NIR refers to Band 8 and Red to Band 4. NDVI values range from -1 to +1, with values above 0.3 typically indicating healthy vegetation cover.",
+      "Multi-temporal NDVI analysis for the Gelephu region between 2018 and 2023 revealed a mean NDVI decline from 0.68 to 0.54 across the study area, indicating an overall degradation of vegetation health and density. Spatially, the largest NDVI decreases were concentrated in the northern and eastern fringes of the city.",
+      "The NDVI time series analysis provides a quantitative proxy for monitoring deforestation, agricultural expansion, and urbanization-driven vegetation loss. Seasonal NDVI composites were generated to minimize cloud contamination effects and capture peak growing season vegetation conditions."
+    ],
+    "source": "Utilizing Sentinel-2 Satellite Imagery for LULC and NDVI Change Dynamics for Gelephu Bhutan.pdf"
+  },
+  {
+    "id": "G010",
+    "query": "What are the key evaluation metrics for lung cancer detection models?",
+    "ideal_context": [
+      "Lung cancer detection models are typically evaluated using a suite of classification metrics derived from the confusion matrix. Accuracy measures the overall proportion of correctly classified samples. Sensitivity (recall) captures the proportion of actual positive (malignant) cases correctly identified, which is critical in medical diagnosis to minimize missed cancers.",
+      "Specificity measures the proportion of actual negative (benign) cases correctly classified. The F1-score balances precision and recall and is particularly informative under class imbalance. The Area Under the Receiver Operating Characteristic curve (AUC-ROC) provides a threshold-independent measure of discriminative ability.",
+      "In this study, the proposed model achieved an accuracy of 94.3%, sensitivity of 92.8%, specificity of 95.7%, F1-score of 93.5%, and AUC-ROC of 0.978, demonstrating strong clinical viability for early-stage lung cancer screening."
+    ],
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf"
+  },
+  {
+    "id": "G011",
+    "query": "How do Random Forest feature importances support microbiome-based cancer classification?",
+    "ideal_context": [
+      "Feature importance in Random Forest is computed as the mean decrease in Gini impurity across all decision trees. In the NSCLC microbiome classification task, this metric identified the top predictive microbial genera that contribute most to distinguishing adenocarcinoma from squamous cell carcinoma.",
+      "Veillonella ranked first in feature importance (score: 0.142), followed by Streptococcus (0.118) and Prevotella (0.097). These three genera collectively accounted for 35.7% of the model's total feature importance mass. All three showed statistically significant differential abundance between ADC and SCC (Wilcoxon rank-sum test, p < 0.05).",
+      "Low-importance features were pruned using a threshold of 0.01, reducing the feature set from 237 microbial genera to 48 without a significant loss in classification accuracy, improving model interpretability and reducing computational cost."
+    ],
+    "source": "Classi cation of NSCLC subtypes using lung microbiome from resected tissue based on machine learning methods.pdf"
+  },
+  {
+    "id": "G012",
+    "query": "What machine learning algorithms are benchmarked for land cover classification in mountainous terrain and what are their accuracies?",
+    "ideal_context": [
+      "Five machine learning classifiers were systematically compared for land cover classification in a complex mountainous landscape: Random Forest (RF), Support Vector Machine (SVM) with an RBF kernel, Gradient Boosting (GB), k-Nearest Neighbors (kNN), and Naive Bayes (NB).",
+      "Random Forest achieved the highest overall accuracy of 88.7% with a kappa coefficient of 0.86. Gradient Boosting followed closely at 87.2% (kappa: 0.84), while SVM achieved 85.9% (kappa: 0.82). kNN performed at 79.4% and Naive Bayes at 72.1%, the latter struggling particularly with spectrally overlapping classes such as shrubland and grassland.",
+      "Random Forest demonstrated the most robust performance across all land cover classes, particularly for heterogeneous forested areas, achieving a per-class F1-score above 0.85 for all seven classes in the study area."
+    ],
+    "source": "Assessment of Machine Learning Algorithms for Land Cover Classification in a Complex Mountainous Landscape.pdf"
+  },
+  {
+    "id": "G013",
+    "query": "What optimizer and loss function are used to train lung cancer deep learning models?",
+    "ideal_context": [
+      "The deep learning model for lung cancer detection was trained using the Adam optimizer with an initial learning rate of 1e-4. A learning rate scheduler reduced the rate by a factor of 0.5 whenever the validation loss plateaued for more than three consecutive epochs.",
+      "Binary cross-entropy loss was used as the loss function for the binary classification task (malignant vs. benign). To address class imbalance, class weights inversely proportional to class frequencies were incorporated into the loss function, penalizing misclassification of the minority malignant class more heavily.",
+      "The model was trained for a maximum of 100 epochs with early stopping triggered when validation loss did not improve for 15 consecutive epochs. The best model checkpoint (minimum validation loss) was saved and used for final test evaluation."
+    ],
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf"
+  },
+  {
+    "id": "G014",
+    "query": "How is the U-Net architecture adapted for land cover segmentation from remote sensing imagery?",
+    "ideal_context": [
+      "U-Net is adapted for land cover semantic segmentation by modifying the encoder to accept multi-spectral input tensors with up to 12 channels corresponding to Sentinel-2 spectral bands, replacing the standard 3-channel RGB input.",
+      "The encoder path uses five successive blocks of two convolutional layers followed by 2\u00d72 max-pooling, progressively doubling the feature map depth while halving spatial dimensions. The decoder path mirrors the encoder with bilinear upsampling and skip connections that concatenate encoder feature maps to recover spatial detail lost during pooling.",
+      "The output layer produces a pixel-wise classification map across six land cover classes using a 1\u00d71 convolution with softmax activation. The model is trained with a combined loss of cross-entropy and Dice loss to handle class imbalance in the land cover label distribution."
+    ],
+    "source": "Land-Cover Classification Using Deep Learning with High-Resolution Remote-Sensing Imagery.pdf"
+  },
+  {
+    "id": "G015",
+    "query": "How does topographic correction improve land cover classification accuracy in mountainous regions?",
+    "ideal_context": [
+      "Topographic correction normalizes the reflectance values of satellite imagery to account for differential illumination caused by terrain slope and aspect. Without correction, south-facing slopes in the northern hemisphere receive more direct sunlight than north-facing slopes, causing the same land cover class to exhibit vastly different spectral signatures depending on terrain orientation.",
+      "The C-correction method was applied to the Sentinel-2 imagery using a 30-meter Digital Elevation Model (DEM) from SRTM. This method models the cosine of the solar incidence angle and applies a linear regression-based correction. After correction, the standard deviation of spectral values within homogeneous land cover classes decreased by an average of 23%.",
+      "The overall classification accuracy improved from 82.4% without topographic correction to 88.7% with correction applied, demonstrating that topographic normalization is essential for accurate land cover mapping in mountainous terrain."
+    ],
+    "source": "Assessment of Machine Learning Algorithms for Land Cover Classification in a Complex Mountainous Landscape.pdf"
+  },
+  {
+    "id": "G016",
+    "query": "What batch size and number of training epochs are used in deep learning CT scan models?",
+    "ideal_context": [
+      "The CNN model was trained with a mini-batch size of 32 samples per iteration, balancing memory efficiency and gradient estimate quality. Given the dataset size of 3,200 training samples, each epoch comprised 100 gradient update steps.",
+      "Training proceeded for up to 100 epochs, with early stopping applied based on validation loss with a patience of 15 epochs. The model converged at epoch 67, at which point the validation loss stabilized. Total training time on a single NVIDIA Tesla T4 GPU was approximately 2.4 hours.",
+      "Learning curves showed that validation accuracy plateaued around epoch 50, with only marginal gains observed thereafter. The final model checkpoint at epoch 67 achieved the lowest validation loss of 0.147 and was selected for test set evaluation."
+    ],
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf"
+  },
+  {
+    "id": "G017",
+    "query": "What sample collection and sequencing protocol is used for NSCLC lung microbiome analysis?",
+    "ideal_context": [
+      "Lung tissue samples were collected from 124 NSCLC patients (68 adenocarcinoma, 56 squamous cell carcinoma) during surgical resection. Tissue specimens were flash-frozen in liquid nitrogen immediately post-resection to preserve microbial community integrity and stored at -80\u00b0C until DNA extraction.",
+      "Total genomic DNA was extracted from 0.5g of tissue homogenate using the PowerSoil DNA Isolation Kit. 16S rRNA gene sequencing was performed targeting the V3-V4 hypervariable region on the Illumina MiSeq platform, generating paired-end reads of 2\u00d7250 bp. A minimum of 10,000 reads per sample was retained after quality filtering.",
+      "Operational Taxonomic Units (OTUs) were clustered at 97% sequence similarity using QIIME2 with the SILVA 138 database for taxonomic assignment. Alpha and beta diversity metrics were computed prior to machine learning feature extraction."
+    ],
+    "source": "Classi cation of NSCLC subtypes using lung microbiome from resected tissue based on machine learning methods.pdf"
+  },
+  {
+    "id": "G018",
+    "query": "How is Sentinel-2 imagery cloud-masked before LULC analysis?",
+    "ideal_context": [
+      "Cloud masking is a critical preprocessing step for Sentinel-2 LULC analysis. The Sentinel-2 Level-2A product provides a Scene Classification Layer (SCL) that assigns each pixel to one of 11 categories including clear, cloud, cloud shadow, snow, and water. Pixels classified as cloud or cloud shadow are excluded from analysis.",
+      "For the Gelephu study area, a seasonal composite strategy was adopted: cloud-free pixels from all acquisitions within a three-month growing season window (July\u2013September) were composited using the median reflectance value across dates. This approach maximized coverage while minimizing cloud contamination.",
+      "After applying the SCL cloud mask and computing seasonal composites, cloud coverage was reduced from an average of 34.2% per single-date acquisition to less than 2% per composite image, yielding high-quality, cloud-free mosaics suitable for LULC classification."
+    ],
+    "source": "Utilizing Sentinel-2 Satellite Imagery for LULC and NDVI Change Dynamics for Gelephu Bhutan.pdf"
+  },
+  {
+    "id": "G019",
+    "query": "How does batch normalization benefit CNN training for medical image classification?",
+    "ideal_context": [
+      "Batch normalization (BN) normalizes the activations of each layer across the mini-batch to have zero mean and unit variance, then applies learnable scale and shift parameters (gamma and beta). This reduces internal covariate shift \u2014 the phenomenon where the distribution of layer inputs changes during training as the parameters of preceding layers are updated.",
+      "In the lung cancer CNN, batch normalization is inserted after every convolutional layer and before the ReLU activation. This placement accelerates convergence by allowing the use of higher learning rates and reduces the sensitivity of network training to weight initialization.",
+      "Ablation experiments showed that removing batch normalization from the proposed architecture increased training time by 40% and reduced final test accuracy by 2.8%, confirming its essential role in stabilizing and accelerating CNN training for CT scan classification."
+    ],
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf"
+  },
+  {
+    "id": "G020",
+    "query": "What accuracy does the deep learning model achieve for land cover classification using high-resolution remote sensing imagery?",
+    "ideal_context": [
+      "The proposed U-Net model achieves an overall accuracy of 93.7% and a mean Intersection over Union (IoU) of 0.89 on the high-resolution remote sensing test set comprising 0.5-meter GSD aerial imagery. Per-class F1-scores range from 0.84 for the heterogeneous 'scrubland' class to 0.97 for 'water body'.",
+      "The model outperforms all baseline methods across all evaluation metrics, including SVM (85.2% OA, IoU 0.76), Random Forest (87.4% OA, IoU 0.81), and SegNet (90.1% OA, IoU 0.86). The improvement over SegNet is attributed to the U-Net skip connections, which better preserve fine-grained boundary details.",
+      "Per-class analysis reveals that confusion between 'low vegetation' and 'bare ground' is the largest source of error, accounting for 4.2% of total misclassifications, likely due to spectral similarity between dry grass and bare soil in summer imagery."
+    ],
+    "source": "Land-Cover Classification Using Deep Learning with High-Resolution Remote-Sensing Imagery.pdf"
+  },
+  {
+    "id": "G021",
+    "query": "What are the limitations of using microbiome data for NSCLC classification?",
+    "ideal_context": [
+      "Several limitations affect microbiome-based NSCLC classification. First, the dataset of 124 samples is relatively small, limiting the generalizability of trained models to broader patient populations. External validation on independent cohorts from different hospitals or geographic regions has not yet been performed.",
+      "Second, 16S rRNA sequencing provides genus-level taxonomic resolution, which may miss species- or strain-level differences that are more discriminative for NSCLC subtype classification. Shotgun metagenomics sequencing would provide higher resolution but at significantly greater cost.",
+      "Third, the lung microbiome composition can be confounded by prior antibiotic use, smoking history, and co-occurring pulmonary infections, none of which were fully controlled in this study. These confounding factors may inflate or obscure the discriminative signal of the microbiome features."
+    ],
+    "source": "Classi cation of NSCLC subtypes using lung microbiome from resected tissue based on machine learning methods.pdf"
+  },
+  {
+    "id": "G022",
+    "query": "How is the kappa coefficient interpreted in land cover classification accuracy assessment?",
+    "ideal_context": [
+      "The kappa coefficient (Cohen's kappa) measures the agreement between classified and reference labels while accounting for the possibility of agreement occurring by chance. Kappa values range from -1 to +1, where 1 represents perfect agreement, 0 represents agreement equivalent to chance, and negative values indicate agreement worse than chance.",
+      "In land cover classification, kappa values above 0.80 are generally considered to represent strong agreement, values between 0.60 and 0.80 indicate moderate agreement, and values below 0.60 suggest poor agreement unsuitable for operational mapping applications.",
+      "In this study, the Random Forest classifier achieved a kappa of 0.86, indicating strong agreement between the classified land cover map and ground-truth reference samples, confirming the reliability of the classification for mountainous terrain mapping applications."
+    ],
+    "source": "Assessment of Machine Learning Algorithms for Land Cover Classification in a Complex Mountainous Landscape.pdf"
+  },
+  {
+    "id": "G023",
+    "query": "What are the false positive reduction strategies used in lung nodule detection?",
+    "ideal_context": [
+      "False positives in lung nodule detection arise when non-nodule structures such as blood vessels, ribs, or image noise are incorrectly classified as nodules. To reduce false positives, a two-stage detection pipeline is employed: candidate generation followed by false positive reduction.",
+      "In the false positive reduction stage, a Random Forest classifier is trained on shape, texture, and intensity features extracted from each detected candidate region. Features include nodule diameter, sphericity, compactness, and histogram-based texture descriptors. The Random Forest classifier rejects candidates with a high probability of being non-nodule structures.",
+      "This two-stage approach reduced the false positive rate from 8.4 per scan (candidate generation stage) to 1.2 per scan (after false positive reduction), while maintaining a sensitivity of 91.3%, demonstrating the effectiveness of the secondary classification stage."
+    ],
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf"
+  },
+  {
+    "id": "G024",
+    "query": "What land cover change trends are observed in Gelephu, Bhutan between 2018 and 2023?",
+    "ideal_context": [
+      "Multi-temporal LULC classification of Sentinel-2 imagery for Gelephu, Bhutan reveals significant land cover change between 2018 and 2023. Forest cover declined from 54.7% to 42.3% of the total study area, representing a reduction of 12.4 percentage points driven primarily by agricultural expansion and urban development.",
+      "Built-up area expanded from 8.1% to 17.8%, a 9.7 percentage point increase attributed to rapid infrastructure development associated with the Gelephu Mindfulness City project. Agricultural land increased marginally from 23.4% to 26.1%, while grassland and barren land remained relatively stable.",
+      "Water body extent showed minor seasonal fluctuation but no significant long-term trend. The NDVI change map confirms that the most significant vegetation loss occurred at the urban-rural fringe, consistent with the spatial pattern of built-up area expansion."
+    ],
+    "source": "Utilizing Sentinel-2 Satellite Imagery for LULC and NDVI Change Dynamics for Gelephu Bhutan.pdf"
+  },
+  {
+    "id": "G025",
+    "query": "How is dropout regularization applied in VGG16 for lung cancer classification?",
+    "ideal_context": [
+      "Dropout regularization is applied to the fully connected layers of the VGG16 model to prevent overfitting during fine-tuning on the lung cancer CT dataset. After each of the two dense layers (4096 units each) in the classification head, a dropout layer with a rate of 0.5 is applied during training.",
+      "During inference, dropout is disabled and all neurons are active, with their weights scaled by the dropout rate (0.5) to maintain the expected activation magnitudes. This differs from training, where each neuron is independently zeroed out with probability 0.5 at each forward pass.",
+      "Ablation experiments showed that removing dropout from the VGG16 fine-tuning pipeline increased the training-validation accuracy gap from 2.1% to 8.4%, confirming that dropout effectively suppresses overfitting when adapting a large pretrained model to a small medical imaging dataset."
+    ],
+    "source": "AI-Powered Lung Cancer Detection- Assessing VGG16 and CNN Architectures for CT Scan Image Classification.pdf"
+  }
+]

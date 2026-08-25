@@ -1,0 +1,152 @@
+[
+  {
+    "id": "R001",
+    "query": "What deep learning architectures are used for lung cancer detection from CT scan images?",
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf",
+    "ideal_answer": "The deep learning architectures used for lung cancer detection from CT scan images include VGG16, ResNet50, and various 3D CNN models such as AlexNet and CNN-T5. These models have demonstrated significant accuracy and effectiveness in classifying lung cancer through advanced techniques like transfer learning and hyperparameter optimization."
+  },
+  {
+    "id": "R002",
+    "query": "How does VGG16 compare with standard CNN for classifying lung cancer from CT images?",
+    "source": "AI-Powered Lung Cancer Detection- Assessing VGG16 and CNN Architectures for CT Scan Image Classification.pdf",
+    "ideal_answer": "VGG16 outperforms standard CNN models in classifying lung cancer from CT images, demonstrating higher accuracy and learning efficiency. Studies indicate that VGG16's deep architecture enhances diagnostic results, making it a more suitable choice for early lung cancer detection compared to basic CNNs."
+  },
+  {
+    "id": "R003",
+    "query": "Which machine learning methods classify NSCLC subtypes using lung microbiome data?",
+    "source": "Classification of NSCLC subtypes using lung microbiome from resected tissue based on machine learning methods.pdf",
+    "ideal_answer": "The machine learning methods used to classify NSCLC subtypes using lung microbiome data include logistic regression (LR), na\u00efve bayes (NB), random forest (RF), extreme gradient boost (XGBoost), k-nearest neighbor (KNN), and deep neural networks (DNN). These classifiers were evaluated for their performance in distinguishing between adenocarcinoma (AC) and squamous cell carcinoma (SCC)."
+  },
+  {
+    "id": "R004",
+    "query": "What preprocessing steps are applied to CT scan images before feeding them into deep learning models for lung cancer?",
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf",
+    "ideal_answer": "The preprocessing steps applied to CT scan images include image enhancement techniques such as histogram equalization (HE), contrast-limited adaptive histogram equalization (CLAHE), and noise reduction. Additionally, methodologies like data augmentation and gathering information from neighboring CT slices are utilized to improve the robustness and generalization of the dataset. A two-dimensional Discrete Wavelet Transform (DWT) is also applied to simplify the images for better textural inference."
+  },
+  {
+    "id": "R005",
+    "query": "What is the role of transfer learning in AI-powered lung cancer detection?",
+    "source": "AI-Powered Lung Cancer Detection- Assessing VGG16 and CNN Architectures for CT Scan Image Classification.pdf",
+    "ideal_answer": "Transfer learning plays a crucial role in AI-powered lung cancer detection by allowing models like VGG16 to leverage pre-trained knowledge, which enhances their accuracy in detecting malignant tissues in CT images. This approach reduces computational complexity and improves reliability, making it more efficient for practical applications in early cancer detection."
+  },
+  {
+    "id": "R006",
+    "query": "How is sensitivity and specificity reported for deep learning lung cancer diagnosis models?",
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf",
+    "ideal_answer": "Metrics such as accuracy, sensitivity, specificity, and F1-score were calculated on the test set to validate model performance. These detailed processes ensure the study\u2019s findings are reproducible and its hypothesis is testable under similar experimental conditions."
+  },
+  {
+    "id": "R007",
+    "query": "What microbial taxa are most discriminative for distinguishing adenocarcinoma from squamous cell carcinoma?",
+    "source": "Classi cation of NSCLC subtypes using lung microbiome from resected tissue based on machine learning methods.pdf",
+    "ideal_answer": "The study identified distinct microbial taxa associated with adenocarcinoma (AC) and squamous cell carcinoma (SCC), with increased abundance of genera Acinetobacter and Propionibacterium in AC, while SCC showed a predominance of the family Enterobacteriaceae. These findings suggest that these taxa could serve as potential biomarkers for distinguishing between the two NSCLC subtypes."
+  },
+  {
+    "id": "R008",
+    "query": "How does data augmentation improve lung cancer detection model generalization?",
+    "source": "AI-Powered Lung Cancer Detection- Assessing VGG16 and CNN Architectures for CT Scan Image Classification.pdf",
+    "ideal_answer": "Data augmentation improves lung cancer detection model generalization by increasing the diversity of the training data, which helps the model learn to recognize lesions from various orientations and conditions. Techniques such as resizing, flipping, and normalizing images enhance the model's robustness and ability to perform well on unseen data, ultimately leading to better diagnostic accuracy."
+  },
+  {
+    "id": "R009",
+    "query": "What class imbalance challenges exist in lung cancer CT datasets and how are they addressed?",
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf",
+    "ideal_answer": "The context mentions that the dataset used for training consists of a balanced representation across various cancer types (Adenocarcinoma, Large Cell Carcinoma, Squamous Cell Carcinoma, and Normal). This balanced representation helps address class imbalance challenges in lung cancer CT datasets."
+  },
+  {
+    "id": "R010",
+    "query": "What machine learning algorithms are compared for land cover classification in mountainous landscapes?",
+    "source": "Assessment of Machine Learning Algorithms for Land Cover Classification in a Complex Mountainous Landscape.pdf",
+    "ideal_answer": "The study compares several machine learning algorithms for land cover classification, including classification and regression tree (CART), maximum entropy (gmoMaxEnt), minimum distance (minDistance), support vector machine (SVM), and random forest (RF)."
+  },
+  {
+    "id": "R011",
+    "query": "How is Sentinel-2 satellite imagery used for LULC and NDVI change detection in Bhutan?",
+    "source": "Utilizing Sentinel-2 Satellite Imagery for LULC and NDVI Change Dynamics for Gelephu Bhutan.pdf",
+    "ideal_answer": "Sentinel-2 satellite imagery is utilized to assess land use land cover (LULC) and Normalized Difference Vegetation Index (NDVI) changes in Gelephu, Bhutan, by analyzing satellite data from 2016 and 2023. The study employs a Random Forest classifier to map LULC and evaluate vegetation dynamics, focusing on urban growth and vegetation health. This approach leverages GIS and remote sensing techniques to provide insights into urbanization trends and vegetation changes, supporting sustainable development planning."
+  },
+  {
+    "id": "R012",
+    "query": "What deep learning methods achieve high accuracy in land cover classification with high-resolution remote sensing imagery?",
+    "source": "Land-Cover Classification Using Deep Learning with High-Resolution Remote-Sensing Imagery.pdf",
+    "ideal_answer": "The study demonstrates the effectiveness of convolutional neural networks (CNNs), specifically using transfer learning with Inception-v3 and DenseNet121 architectures, in achieving high accuracy in land cover classification. The results include 92% accuracy, 93% recall, 92% precision, and a 92% F1-score, highlighting the advantages of these deep learning methods in optimizing model performance."
+  },
+  {
+    "id": "R013",
+    "query": "What spectral bands from Sentinel-2 are most useful for vegetation and land use classification?",
+    "source": "Utilizing Sentinel-2 Satellite Imagery for LULC and NDVI Change Dynamics for Gelephu Bhutan.pdf",
+    "ideal_answer": "The most useful spectral bands from Sentinel-2 for vegetation and land use classification are the 10 m RGB bands (Bands 2, 3, and 4) and the Band 8 near-infrared (NIR) band. Additionally, the three red-edge bands (Bands 5, 6, and 7) are particularly effective in capturing strong reflectance from vegetation in the near-infrared region."
+  },
+  {
+    "id": "R014",
+    "query": "What challenges arise when classifying land cover in complex mountainous terrain using satellite imagery?",
+    "source": "Assessment of Machine Learning Algorithms for Land Cover Classification in a Complex Mountainous Landscape.pdf",
+    "ideal_answer": "Challenges in classifying land cover in complex mountainous terrain using satellite imagery include complex terrain, limited data availability, and accessibility constraints. Additionally, issues such as insufficient transferability of models to diverse dataset images and the lack of extensive, well-annotated land-cover datasets further complicate the classification process. Variability in photographic distortions, scale variations, and illumination changes in high-resolution satellite images also pose significant difficulties."
+  },
+  {
+    "id": "R015",
+    "query": "How do convolutional neural networks outperform traditional methods in remote sensing image classification?",
+    "source": "Land-Cover Classification Using Deep Learning with High-Resolution Remote-Sensing Imagery.pdf",
+    "ideal_answer": "Convolutional neural networks (CNNs) outperform traditional methods in remote sensing image classification by effectively capturing intricate features and contextual information from high-resolution images. Their ability to leverage pre-trained features through transfer learning enhances model generalization and performance, particularly in complex urban land areas where traditional methods struggle with precise classification. This results in improved accuracy and reliability in land cover classification systems."
+  },
+  {
+    "id": "R016",
+    "query": "What evaluation metrics are used to validate lung cancer detection models in clinical settings?",
+    "source": "AI-Powered Lung Cancer Detection- Assessing VGG16 and CNN Architectures for CT Scan Image Classification.pdf",
+    "ideal_answer": "The evaluation metrics used to validate lung cancer detection models in clinical settings include accuracy, recall, precision, and F1-score. These metrics assess the model's performance in accurately diagnosing different classes of lung cancer and normal lung tissue."
+  },
+  {
+    "id": "R017",
+    "query": "What dataset is used to train and evaluate NSCLC microbiome classification models?",
+    "source": "Classi cation of NSCLC subtypes using lung microbiome from resected tissue based on machine learning methods.pdf",
+    "ideal_answer": "The dataset used to train and evaluate NSCLC microbiome classification models is identified as PRJNA303190, which includes 294 samples derived from resected lung tissue of patients with European ancestry in Lombardy, Italy. Additionally, an independent dataset identified as PRJNA327258, comprising 97 samples, is used for validation of the models."
+  },
+  {
+    "id": "R018",
+    "query": "How is NDVI used to monitor vegetation change over time in Gelephu, Bhutan?",
+    "source": "Utilizing Sentinel-2 Satellite Imagery for LULC and NDVI Change Dynamics for Gelephu Bhutan.pdf",
+    "ideal_answer": "NDVI is used to monitor vegetation change over time in Gelephu by analyzing satellite imagery from Sentinel-2 for the years 2016 and 2023. The NDVI index, calculated using the near-infrared and red spectral bands, serves as an indicator of vegetation health and density, revealing significant deterioration in vegetation with a 75.11% loss of healthy vegetation during that period. This assessment provides insights into changes in plant health and growth, which are critical for environmental monitoring and sustainable land management."
+  },
+  {
+    "id": "R019",
+    "query": "What pooling and activation functions are used in CNN models for medical image classification?",
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf",
+    "ideal_answer": "In the CNN models for medical image classification, the pooling function used is max-pooling, which reduces the dimensionality of the feature maps by returning the maximum value from a specified region. The activation function employed is the ReLU (Rectified Linear Unit) function, which introduces non-linearity by returning 0 for negative values and the value itself for positive values."
+  },
+  {
+    "id": "R020",
+    "query": "How does overall accuracy and kappa coefficient measure land cover classification performance?",
+    "source": "Assessment of Machine Learning Algorithms for Land Cover Classification in a Complex Mountainous Landscape.pdf",
+    "ideal_answer": "Overall accuracy (OA) measures the percentage of correctly labeled pixels by the classifier, while the kappa coefficient assesses the overall agreement between the classification results and reference data, accounting for chance agreement. Both metrics provide insights into the classification performance of machine learning algorithms, with higher values indicating better accuracy and reliability in land cover classification."
+  },
+  {
+    "id": "R021",
+    "query": "What is the impact of lung nodule size on detection accuracy in deep learning models?",
+    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf",
+    "ideal_answer": "The context does not provide any information regarding the impact of lung nodule size on detection accuracy in deep learning models."
+  },
+  {
+    "id": "R022",
+    "query": "What is the role of batch normalization and dropout in deep learning models for CT image classification?",
+    "source": "AI-Powered Lung Cancer Detection- Assessing VGG16 and CNN Architectures for CT Scan Image Classification.pdf",
+    "ideal_answer": "The context does not provide any information about the role of batch normalization and dropout in deep learning models for CT image classification."
+  },
+  {
+    "id": "R023",
+    "query": "How do random forest feature importances identify key land cover spectral features?",
+    "source": "Assessment of Machine Learning Algorithms for Land Cover Classification in a Complex Mountainous Landscape.pdf",
+    "ideal_answer": "The context does not explicitly state how random forest feature importances identify key land cover spectral features. It mentions that the RF uses the labelled training data resulting from the generated ROIs to accurately train a model to classify the associated pixels in the image under each predefined land class, but does not detail the process of identifying key spectral features."
+  },
+  {
+    "id": "R024",
+    "query": "What spatial resolution of satellite imagery is optimal for accurate urban land cover classification?",
+    "source": "Land-Cover Classification Using Deep Learning with High-Resolution Remote-Sensing Imagery.pdf",
+    "ideal_answer": "The optimal spatial resolution for accurate urban land cover classification, as indicated in the context, is the relatively high spatial resolution of 10 to 20 meters provided by Sentinel-2 imagery. This resolution is necessary to enable accurate image classification in heterogeneous environments."
+  },
+  {
+    "id": "R025",
+    "query": "What cross-validation strategy is employed to evaluate lung microbiome classification models?",
+    "source": "Classi cation of NSCLC subtypes using lung microbiome from resected tissue based on machine learning methods.pdf",
+    "ideal_answer": "The strati\ufb01ed K-fold cross-validation was used to evaluate the model\u2019s performance, ensuring a balanced representation of both subtypes in each fold."
+  }
+]
