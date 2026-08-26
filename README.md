@@ -2,6 +2,11 @@
 
 A retrieval-augmented generation (RAG) pipeline that answers questions grounded in three research papers: lung cancer CT detection, NSCLC microbiome classification, and Bhutan land cover classification using Sentinel-2 imagery.
 
+![RAG Evaluation](https://weaviate.io/assets/images/hero-226b7c28e4ea09d667b845ee3c54c5d3.png)
+![DeepEval](https://miro.medium.com/1*mAok-OkMM4WoKy62uYcEeA.png)
+![RAG](https://miro.medium.com/v2/resize:fit:1200/1*HD97RULi854FVHjwowpnOA.png)
+![RAG Triad](https://www.trulens.org/assets/images/RAG_Triad.png)
+
 ---
 
 ## Project Structure
