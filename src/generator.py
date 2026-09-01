@@ -59,6 +59,11 @@ async def generate_answer(query: str, context: list[str]) -> str:
     """ Generates a grounded answer from the query and context chunks. """
     return await chain.ainvoke({"question": query, "context": "\n".join(context)})
 
+def generate_streaming_answer(query: str, context: list[str]):
+    for chunk in chain.stream({"question": query, "context": "\n".join(context)}):
+        if chunk:
+            yield chunk
+
 if __name__ == "__main__":
     async def main():
         context = [
