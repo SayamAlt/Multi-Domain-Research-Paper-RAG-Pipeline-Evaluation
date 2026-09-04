@@ -1,7 +1,9 @@
-from collections import Counter
 from sentence_transformers import CrossEncoder
 from src.retriever import load_vector_store
 import asyncio
+import warnings
+
+warnings.filterwarnings("ignore", message="Relevance scores must be between")
 
 # Load the cross encoder model to rerank retrieval results
 CROSS_ENCODER = "cross-encoder/ms-marco-electra-base"
@@ -28,14 +30,7 @@ class RerankingRetriever:
         if not candidates_with_scores:
             return []
 
-        # Majority vote on top third of FAISS results → dominant source paper for this query
-        top_slice = max(1, self.fetch_k // 3)
-        top_candidates = sorted(candidates_with_scores, key=lambda x: x[1], reverse=True)[:top_slice]
-        source_counts = Counter(doc.metadata.get("source", "") for doc, _ in top_candidates)
-        dominant_source = source_counts.most_common(1)[0][0]
-
-        # Keep only chunks from dominant source before reranking
-        candidates = [doc for doc, _ in candidates_with_scores if doc.metadata.get("source", "") == dominant_source]
+        candidates = [doc for doc, _ in candidates_with_scores]
 
         pairs = [(query, doc.page_content) for doc in candidates]
         scores = await loop.run_in_executor(

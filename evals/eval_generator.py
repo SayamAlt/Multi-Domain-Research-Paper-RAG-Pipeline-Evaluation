@@ -1,51 +1,52 @@
-import json, asyncio
+import asyncio
 from dotenv import load_dotenv
 from deepeval import evaluate
-from deepeval.metrics import FaithfulnessMetric, AnswerRelevancyMetric
 from deepeval.test_case import LLMTestCase
+from deepeval.metrics import FaithfulnessMetric, AnswerRelevancyMetric
 from src.generator import generate_answer
+from evals.harness import load_goldens, summarize_by_metric, print_summary
 
 load_dotenv()
 
-GOLDEN_DATASET_PATH = "goldens/generator_golden_dataset.json"
+GOLDEN_PATH = "goldens/generator_golden_dataset.json"
 JUDGE_MODEL = "gpt-4.1-mini"
 THRESHOLD = 0.7
 
-# Load the golden dataset
-with open(GOLDEN_DATASET_PATH) as f:
-    golden_dataset = json.load(f)
-    
-# Build test cases for each generator answer on the golden dataset
-test_cases = []
+def run():
+    goldens = load_goldens(GOLDEN_PATH)
 
-for gd in golden_dataset:
-    context = gd["ideal_context"]
-    answer = asyncio.run(generate_answer(gd["query"], context))
-    
-    test_cases.append(
-        LLMTestCase(
-            input=gd["query"],
-            actual_output=answer,
-            retrieval_context=context 
-            # No expected output here since faithfulness metric never reads expected_output; it may leak expected output
+    test_cases = []
+    for gd in goldens:
+        context = gd["ideal_context"]
+        answer = asyncio.run(generate_answer(gd["query"], context))
+        test_cases.append(
+            LLMTestCase(
+                input=gd["query"],
+                actual_output=answer,
+                retrieval_context=context
+            )
         )
-    )
-    
-# Define a list of key metrics for generator evaluation
-metrics = [
-    FaithfulnessMetric(threshold=THRESHOLD, model=JUDGE_MODEL, include_reason=True),
-    AnswerRelevancyMetric(threshold=THRESHOLD, model=JUDGE_MODEL, include_reason=True)
-]
 
-# Run evaluation of all test cases from golden dataset to display final report
-evaluate(
-    test_cases=test_cases,
-    metrics=metrics,
-    hyperparameters={
-        "judge_model": JUDGE_MODEL,
-        "threshold": THRESHOLD,
-        "generator_model": "gpt-4o-mini",
-        "temperature": 0,
-        "context_source": "ideal_context (golden dataset)"
-    }
-)
+    metrics = [
+        FaithfulnessMetric(threshold=THRESHOLD, model=JUDGE_MODEL, include_reason=True),
+        AnswerRelevancyMetric(threshold=THRESHOLD, model=JUDGE_MODEL, include_reason=True)
+    ]
+
+    result = evaluate(
+        test_cases=test_cases,
+        metrics=metrics,
+        hyperparameters={
+            "judge_model": JUDGE_MODEL,
+            "threshold": THRESHOLD,
+            "generator_model": "gpt-4o-mini",
+            "temperature": 0,
+            "context_source": "ideal_context (golden dataset)"
+        }
+    )
+    return summarize_by_metric(result)
+
+def run_local():
+    return run()
+
+if __name__ == "__main__":
+    print_summary("generator", run_local())

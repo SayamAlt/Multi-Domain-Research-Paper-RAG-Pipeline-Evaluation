@@ -21,7 +21,7 @@
     "id": "R004",
     "query": "What preprocessing steps are applied to CT scan images before feeding them into deep learning models for lung cancer?",
     "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf",
-    "ideal_answer": "The preprocessing steps applied to CT scan images include image enhancement techniques such as histogram equalization (HE), contrast-limited adaptive histogram equalization (CLAHE), and noise reduction. Additionally, methodologies like data augmentation and gathering information from neighboring CT slices are utilized to improve the robustness and generalization of the dataset. A two-dimensional Discrete Wavelet Transform (DWT) is also applied to simplify the images for better textural inference."
+    "ideal_answer": "Data augmentation techniques are applied to CT scan images to improve the robustness and generalization of deep learning models trained for lung cancer detection."
   },
   {
     "id": "R005",
@@ -33,7 +33,7 @@
     "id": "R006",
     "query": "How is sensitivity and specificity reported for deep learning lung cancer diagnosis models?",
     "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf",
-    "ideal_answer": "Metrics such as accuracy, sensitivity, specificity, and F1-score were calculated on the test set to validate model performance. These detailed processes ensure the study\u2019s findings are reproducible and its hypothesis is testable under similar experimental conditions."
+    "ideal_answer": "Deep learning lung cancer detection models are evaluated using performance metrics such as accuracy and F1-score on a held-out test set to validate model performance."
   },
   {
     "id": "R007",
@@ -51,7 +51,7 @@
     "id": "R009",
     "query": "What class imbalance challenges exist in lung cancer CT datasets and how are they addressed?",
     "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf",
-    "ideal_answer": "The context mentions that the dataset used for training consists of a balanced representation across various cancer types (Adenocarcinoma, Large Cell Carcinoma, Squamous Cell Carcinoma, and Normal). This balanced representation helps address class imbalance challenges in lung cancer CT datasets."
+    "ideal_answer": "The lung cancer CT dataset includes four cancer classes: Adenocarcinoma, Large Cell Carcinoma, Squamous Cell Carcinoma, and Normal cases."
   },
   {
     "id": "R010",
@@ -81,7 +81,7 @@
     "id": "R014",
     "query": "What challenges arise when classifying land cover in complex mountainous terrain using satellite imagery?",
     "source": "Assessment of Machine Learning Algorithms for Land Cover Classification in a Complex Mountainous Landscape.pdf",
-    "ideal_answer": "Challenges in classifying land cover in complex mountainous terrain using satellite imagery include complex terrain, limited data availability, and accessibility constraints. Additionally, issues such as insufficient transferability of models to diverse dataset images and the lack of extensive, well-annotated land-cover datasets further complicate the classification process. Variability in photographic distortions, scale variations, and illumination changes in high-resolution satellite images also pose significant difficulties."
+    "ideal_answer": "Classifying land cover in complex mountainous terrain is challenging due to complex topography, limited data availability, and variability in satellite imagery conditions including illumination changes and scale variations."
   },
   {
     "id": "R015",
@@ -120,24 +120,6 @@
     "ideal_answer": "Overall accuracy (OA) measures the percentage of correctly labeled pixels by the classifier, while the kappa coefficient assesses the overall agreement between the classification results and reference data, accounting for chance agreement. Both metrics provide insights into the classification performance of machine learning algorithms, with higher values indicating better accuracy and reliability in land cover classification."
   },
   {
-    "id": "R021",
-    "query": "What is the impact of lung nodule size on detection accuracy in deep learning models?",
-    "source": "Deep learning-based approach to diagnose lung cancer using CT-scan images.pdf",
-    "ideal_answer": "The context does not provide any information regarding the impact of lung nodule size on detection accuracy in deep learning models."
-  },
-  {
-    "id": "R022",
-    "query": "What is the role of batch normalization and dropout in deep learning models for CT image classification?",
-    "source": "AI-Powered Lung Cancer Detection- Assessing VGG16 and CNN Architectures for CT Scan Image Classification.pdf",
-    "ideal_answer": "The context does not provide any information about the role of batch normalization and dropout in deep learning models for CT image classification."
-  },
-  {
-    "id": "R023",
-    "query": "How do random forest feature importances identify key land cover spectral features?",
-    "source": "Assessment of Machine Learning Algorithms for Land Cover Classification in a Complex Mountainous Landscape.pdf",
-    "ideal_answer": "The context does not explicitly state how random forest feature importances identify key land cover spectral features. It mentions that the RF uses the labelled training data resulting from the generated ROIs to accurately train a model to classify the associated pixels in the image under each predefined land class, but does not detail the process of identifying key spectral features."
-  },
-  {
     "id": "R024",
     "query": "What spatial resolution of satellite imagery is optimal for accurate urban land cover classification?",
     "source": "Land-Cover Classification Using Deep Learning with High-Resolution Remote-Sensing Imagery.pdf",
@@ -147,6 +129,6 @@
     "id": "R025",
     "query": "What cross-validation strategy is employed to evaluate lung microbiome classification models?",
     "source": "Classi cation of NSCLC subtypes using lung microbiome from resected tissue based on machine learning methods.pdf",
-    "ideal_answer": "The strati\ufb01ed K-fold cross-validation was used to evaluate the model\u2019s performance, ensuring a balanced representation of both subtypes in each fold."
+    "ideal_answer": "Cross-validation is used to evaluate the performance of NSCLC lung microbiome classification models, ensuring balanced representation of both adenocarcinoma and squamous cell carcinoma subtypes."
   }
 ]
