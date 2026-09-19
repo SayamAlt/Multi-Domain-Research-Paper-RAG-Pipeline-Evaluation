@@ -31,6 +31,8 @@ A retrieval-augmented generation (RAG) pipeline that answers questions grounded 
 │   ├── metric_registry.py           # Metric classification rules (gate/guardrail/info)
 │   ├── run_eval_suite.py            # Full suite runner — writes baseline/candidate snapshots
 │   ├── compare.py                   # Regression comparison: baseline vs candidate → PASS/REVIEW/FAIL
+│   ├── upload_goldens.py            # Upload all golden datasets to LangSmith Datasets
+│   ├── eval_online.py               # Online eval — scores live traces and flags bad performers to LangSmith
 │   ├── eval_retriever.py            # Retriever quality (hit rate, MRR, NDCG)
 │   ├── eval_generator.py            # Generator quality (faithfulness, answer relevancy)
 │   ├── eval_rag_pipeline.py         # End-to-end RAG triad (contextual precision/recall/relevancy)
@@ -72,8 +74,12 @@ A retrieval-augmented generation (RAG) pipeline that answers questions grounded 
 # Install dependencies
 uv sync
 
-# Add API key to .env
-echo "OPENAI_API_KEY=your_key_here" > .env
+# Add keys to .env
+OPENAI_API_KEY=your_key_here
+LANGSMITH_TRACING=true
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+LANGSMITH_API_KEY=your_langsmith_key_here
+LANGSMITH_PROJECT=multi-domain-research-paper-rag-pipeline
 
 # Index the research papers (run once)
 uv run python3 main.py
@@ -150,6 +156,47 @@ python -m evals.eval_application
 python -m evals.eval_safety
 python -m evals.eval_operations
 ```
+
+---
+
+## Online Evaluation
+
+Online evaluation scores live production traces in LangSmith and automatically flags poor-performing traces into the relevant golden datasets for continuous improvement.
+
+### How it works
+
+`RAGPipeline.invoke` is decorated with `@traceable(run_type="chain", name="RAG Pipeline")`, which writes every query-answer-context triplet to LangSmith as a root chain run. `eval_online.py` polls for those runs, scores each with DeepEval metrics, pushes scores as LangSmith feedback, and flags any trace that falls below threshold into the appropriate golden dataset.
+
+**Metric → dataset routing:**
+
+| Metric | Target dataset |
+|---|---|
+| `faithfulness` | `rag-triad` |
+| `contextual_relevancy` | `rag-triad` |
+| `answer_relevancy` | `application-level` |
+
+Flagged examples carry `source_run_id`, `metric`, `score`, `judge reason`, and `"flagged": "bad_performance"` in metadata for easy dashboard filtering.
+
+### Uploading golden datasets to LangSmith
+
+```bash
+# Upload all 7 golden datasets (idempotent — skips if examples already exist)
+uv run python -m evals.upload_goldens
+
+# Force re-upload (clears existing examples first)
+uv run python -m evals.upload_goldens --force
+```
+
+Uploads to LangSmith Datasets section under names: `rag-triad`, `retriever`, `leakage`, `application-level`, `scope-safety`, `toxicity`, `generator`.
+
+### Running the online scorer
+
+```bash
+# Poll every 60s, score new traces, push feedback, flag bad performers
+uv run python evals/eval_online.py
+```
+
+For production, remove the polling loop and invoke `score_recent_traces()` on a cron schedule instead.
 
 ---
 
